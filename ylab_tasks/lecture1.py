@@ -2,7 +2,7 @@
 import socket
 import struct
 from itertools import combinations
-from math import prod
+from math import log, prod
 from urllib.parse import urlparse
 
 
