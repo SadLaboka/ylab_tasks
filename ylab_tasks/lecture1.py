@@ -6,18 +6,6 @@ from math import prod
 from urllib.parse import urlparse
 
 
-def decomposer(num: int, divider: int) -> int:
-    """Counts the number of specified prime divisors in a number"""
-    count = 0
-    while num >= divider:
-        if not num % divider:
-            count += 1
-            num /= divider
-        else:
-            return count
-    return count
-
-
 # Решение задачи №1
 def domain_name(url: str) -> str:
     """Gets the domain name from the link"""
@@ -40,16 +28,17 @@ def int32_to_ip(int32: int) -> str:
 
 
 # Решение задачи №3
-def zeros(n: int) -> int:
-    """Returns the number of trailing zeros of the factorial"""
-    deuces = 0
-    fives = 0
-    for i in range(1, n + 1):
-        if not i % 2:
-            deuces += decomposer(i, 2)
-        if not i % 5:
-            fives += decomposer(i, 5)
-    return min(deuces, fives)
+def zeros(n):
+    if n == 0:
+        return 0
+    top_limit = round(log(n, 5))
+    sum = 0
+    for i in range(1, top_limit + 1):
+        divisor = 1
+        for k in range(i):
+            divisor *= 5
+        sum += n // divisor
+    return sum
 
 
 # Решение задачи №4
