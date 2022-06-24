@@ -16,14 +16,20 @@ def decomposer(num: int, divider: int) -> int:
     return count
 
 
+#Решение задачи №1
 def domain_name(url: str) -> str:
     """Gets the domain name from the link"""
-    if url.startswith('www'):
+    parsed_url = urlparse(url)
+    if not parsed_url.hostname:
         return url.split('.')[1]
-    host = urlparse(url).hostname.split('.')
-    return host[0]
+    host = parsed_url.hostname.split('.')
+    if host[0] == 'www':
+        return host[1]
+    else:
+        return host[0]
 
 
+#Решение задачи №2
 def int32_to_ip(int32: int) -> str:
     """Converts a 32bit number to an IPv4 address"""
     structed_num = struct.pack("!I", int32)
@@ -31,6 +37,7 @@ def int32_to_ip(int32: int) -> str:
     return ip
 
 
+#Решение задачи №3
 def zeros(n: int) -> int:
     """Returns the number of trailing zeros of the factorial"""
     deuces = 0

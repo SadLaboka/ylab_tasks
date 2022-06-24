@@ -6,6 +6,8 @@ def test_domain_name():
     assert domain_name("http://google.co.jp") == "google"
     assert domain_name("www.xakep.ru") == "xakep"
     assert domain_name("https://youtube.com") == "youtube"
+    assert domain_name("https://www.cnet.com" ) == "cnet"
+    assert domain_name("http://www.zombie-bites.com") == "zombie-bites"
 
 
 def test_int32_to_ip():
