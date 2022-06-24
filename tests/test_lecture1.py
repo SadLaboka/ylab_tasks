@@ -1,4 +1,5 @@
-from ylab_tasks.lecture1 import count_find_num, domain_name, int32_to_ip, zeros
+from ylab_tasks.lecture1 import (
+    bananas, count_find_num, domain_name, int32_to_ip, zeros)
 
 
 def test_domain_name():
@@ -23,18 +24,18 @@ def test_zeros():
     assert zeros(30) == 7
 
 
-# def test_bananas():
-#     assert bananas("banann") == set()
-#     assert bananas("banana") == {"banana"}
-#     assert bananas("bbananana") == {"b-an--ana", "-banana--",
-#                                     "-b--anana", "b-a--nana",
-#                                     "-banan--a", "b-ana--na",
-#                                     "b---anana", "-bana--na",
-#                                     "-ba--nana", "b-anan--a",
-#                                     "-ban--ana", "b-anana--"}
-#     assert bananas("bananaaa") == {"banan-a-", "banana--", "banan--a"}
-#     assert bananas("bananana") == {"ban--ana", "ba--nana", "bana--na",
-#                                    "b--anana", "banana--", "banan--a"}
+def test_bananas():
+    assert bananas("banann") == set()
+    assert bananas("banana") == {"banana"}
+    assert bananas("bbananana") == {"b-an--ana", "-banana--",
+                                    "-b--anana", "b-a--nana",
+                                    "-banan--a", "b-ana--na",
+                                    "b---anana", "-bana--na",
+                                    "-ba--nana", "b-anan--a",
+                                    "-ban--ana", "b-anana--"}
+    assert bananas("bananaaa") == {"banan-a-", "banana--", "banan--a"}
+    assert bananas("bananana") == {"ban--ana", "ba--nana", "bana--na",
+                                   "b--anana", "banana--", "banan--a"}
 
 
 def test_count_find_num():

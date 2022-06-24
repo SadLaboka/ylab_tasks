@@ -1,6 +1,7 @@
 """Solutions of tasks from the first lecture"""
 import socket
 import struct
+from itertools import combinations
 from math import prod
 from urllib.parse import urlparse
 
@@ -53,7 +54,18 @@ def zeros(n: int) -> int:
 
 # Решение задачи №4
 def bananas(s: str) -> set:
+    """Searches for all combinations of occurrences of a word in a string
+     and replaces extra characters with '-' """
+    banana = "banana"
     result = set()
+    len_string = len(s)
+    for i in combinations(range(len_string), len_string - len(banana)):
+        letters_list = list(s)
+        for c in i:
+            letters_list[c] = '-'
+        resulting_str = "".join(letters_list)
+        if resulting_str.replace("-", "") == banana:
+            result.add(resulting_str)
     return result
 
 
