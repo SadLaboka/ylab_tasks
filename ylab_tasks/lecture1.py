@@ -23,7 +23,7 @@ def domain_name(url: str) -> str:
     """Gets the domain name from the link"""
     parsed_url = urlparse(url)
     if not parsed_url.hostname:
-        return url.split('.')[1]
+        return url.split('.')[1] if url.startswith('www') else url.split('.')[0]
     host = parsed_url.hostname.split('.')
     if host[0] == 'www':
         return host[1]
