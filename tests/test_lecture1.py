@@ -1,4 +1,4 @@
-from ylab_tasks.lecture1 import domain_name, int32_to_ip
+from ylab_tasks.lecture1 import domain_name, int32_to_ip, zeros
 
 
 def test_domain_name():
@@ -12,3 +12,10 @@ def test_int32_to_ip():
     assert int32_to_ip(2154959208) == "128.114.17.104"
     assert int32_to_ip(0) == "0.0.0.0"
     assert int32_to_ip(2149583361) == "128.32.10.1"
+
+
+def test_zeros():
+    assert zeros(0) == 0
+    assert zeros(6) == 1
+    assert zeros(12) == 2
+    assert zeros(30) == 7
