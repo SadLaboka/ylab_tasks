@@ -1,6 +1,7 @@
 """Solutions of tasks from the first lecture"""
 import socket
 import struct
+from math import prod
 from urllib.parse import urlparse
 
 
@@ -16,7 +17,7 @@ def decomposer(num: int, divider: int) -> int:
     return count
 
 
-#Решение задачи №1
+# Решение задачи №1
 def domain_name(url: str) -> str:
     """Gets the domain name from the link"""
     parsed_url = urlparse(url)
@@ -29,7 +30,7 @@ def domain_name(url: str) -> str:
         return host[0]
 
 
-#Решение задачи №2
+# Решение задачи №2
 def int32_to_ip(int32: int) -> str:
     """Converts a 32bit number to an IPv4 address"""
     structed_num = struct.pack("!I", int32)
@@ -37,7 +38,7 @@ def int32_to_ip(int32: int) -> str:
     return ip
 
 
-#Решение задачи №3
+# Решение задачи №3
 def zeros(n: int) -> int:
     """Returns the number of trailing zeros of the factorial"""
     deuces = 0
@@ -48,3 +49,33 @@ def zeros(n: int) -> int:
         if not i % 5:
             fives += decomposer(i, 5)
     return min(deuces, fives)
+
+
+# Решение задачи №4
+def bananas(s: str) -> set:
+    result = set()
+    return result
+
+
+# Решение задачи №5
+def count_find_num(primesL: list, limit: int) -> list:
+    """Searches for all possible options
+     for multiplying elements up to the limit and
+     returns the number of options and the maximum"""
+    min_number = prod(primesL)
+    result = set()
+    result.add(min_number)
+    if min_number > limit:
+        return []
+    old_values = {min_number}
+    while min_number <= limit:
+        new_values = set()
+        for i in old_values:
+            for n in primesL:
+                mul = i * n
+                new_values.add(mul)
+                if mul <= limit:
+                    result.add(mul)
+        min_number = min(new_values)
+        old_values = {i for i in new_values if i < limit}
+    return [len(result), max(result)]
