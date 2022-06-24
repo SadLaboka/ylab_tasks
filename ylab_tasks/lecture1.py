@@ -4,6 +4,18 @@ import struct
 from urllib.parse import urlparse
 
 
+def decomposer(num: int, divider: int) -> int:
+    """Counts the number of specified prime divisors in a number"""
+    count = 0
+    while num >= divider:
+        if not num % divider:
+            count += 1
+            num /= divider
+        else:
+            return count
+    return count
+
+
 def domain_name(url: str) -> str:
     """Gets the domain name from the link"""
     if url.startswith('www'):
@@ -21,21 +33,9 @@ def int32_to_ip(int32: int) -> str:
 
 def zeros(n: int) -> int:
     """Returns the number of trailing zeros of the factorial"""
-
-    def decomposer(num: int, divider: int) -> int:
-        """Counts the number of specified prime divisors in a number"""
-        count = 0
-        while num >= divider:
-            if not num % divider:
-                count += 1
-                num /= divider
-            else:
-                return count
-        return count
-
     deuces = 0
     fives = 0
-    for i in range(1, n+1):
+    for i in range(1, n + 1):
         if not i % 2:
             deuces += decomposer(i, 2)
         if not i % 5:
