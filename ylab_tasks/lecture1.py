@@ -29,6 +29,7 @@ def int32_to_ip(int32: int) -> str:
 
 # Решение задачи №3
 def zeros(n):
+    """Returns the number of trailing zeros of the factorial"""
     if n == 0:
         return 0
     top_limit = round(log(n, 5))
