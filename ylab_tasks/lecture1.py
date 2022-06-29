@@ -28,7 +28,7 @@ def int32_to_ip(int32: int) -> str:
 
 
 # Решение задачи №3
-def zeros(n):
+def zeros(n) -> int:
     """Returns the number of trailing zeros of the factorial"""
     if n == 0:
         return 0
