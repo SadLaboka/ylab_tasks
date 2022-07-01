@@ -20,16 +20,17 @@ def shortest_route(points: tuple) -> str:
     end_point = points[0]
     shortest = []
 
-    for variation in combinations(points[1:], number_of_points - 1):
+    for route in combinations(points[1:], number_of_points - 1):
         route_length = 0
         last_point = end_point
         result = f"{last_point}"
 
-        for point in (variation + (end_point, )):
+        for point in (route + (end_point, )):
             dist = distance(last_point, point)
             route_length += dist
             result += f" -> {point}[{dist}]"
             last_point = point
+
         if not shortest or shortest[0] > route_length:
             shortest = [route_length, result]
 
