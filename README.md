@@ -8,3 +8,5 @@
 В каждом модуле решение задач для одной лекции. 
 
 <a href="https://github.com/SadLaboka/ylab_tasks/blob/main/ylab_tasks/lecture1.py">Задачи лекции №1</a>
+
+<a href="https://github.com/SadLaboka/ylab_tasks/blob/main/ylab_tasks/lecture2.py">Задача лекции №2</a>
