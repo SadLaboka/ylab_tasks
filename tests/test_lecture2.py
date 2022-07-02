@@ -1,4 +1,4 @@
-from ylab_tasks.lecture2 import distance, shortest_route
+from ylab_tasks.lecture2.task1 import distance, shortest_route
 
 
 def test_distance():
