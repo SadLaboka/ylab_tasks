@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Reverse tic-tac-toe game. The one who puts 5 symbols in a row loses."""
 import random
 from tkinter import Tk, Label, Button, ttk
 
@@ -204,6 +205,7 @@ def check_second_diagonal(cell: tuple, cells: set) -> set:
 
 
 def change_lose_line(cells: set) -> None:
+    """Changes the background of the losing line to white"""
     global game_run
     if cells:
         game_run = False
