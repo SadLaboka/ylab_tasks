@@ -5,7 +5,6 @@
 ## About:
 Репозиторий для заданий Ylab.
 Модули с решениями находятся в папке ylab_tasks.
-В каждом модуле решение задач для одной лекции. 
 
 <a href="https://github.com/SadLaboka/ylab_tasks/blob/main/ylab_tasks/lecture1.py">Задачи лекции №1</a>
 
