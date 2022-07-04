@@ -26,6 +26,7 @@ def app():
     label = Label(root, text='0', width=35)
     label.grid(row=0, column=0, columnspan=4, sticky="nsew")
 
+    # Creating cells on the field
     for row in range(10):
         line = []
         for col in range(10):
@@ -36,10 +37,13 @@ def app():
             button.grid(row=row, column=col, sticky='nsew')
             line.append(button)
         field.append(line)
+
+    # Creating "New game"-button
     new_button = Button(root, text='New game', command=new_game,
                         background="red", font=('Verdana', 14, 'bold'))
     new_button.grid(row=10, column=0, columnspan=10, sticky='nsew')
 
+    # Creating a Difficulty Switcher
     difficulty_label = Label(root, text="Change difficulty:",
                              background='blue', font=('Verdana', 12, 'bold'))
     difficulty_label.grid(row=11, column=0, columnspan=6, sticky='nsew')
@@ -70,6 +74,7 @@ def new_game():
         for col in range(10):
             field[row][col]['text'] = ' '
             field[row][col]['background'] = 'black'
+
     global game_run
     game_run = True
     global cross_count
@@ -119,22 +124,27 @@ def check_lose(cells: set) -> set:
     """Checks for defeat conditions"""
     global game_run
     for cell in cells:
+
         tmp_cells = check_vertical(cell, cells)
         if len(tmp_cells) >= 4:
             tmp_cells.add(cell)
             return tmp_cells
+
         tmp_cells = check_horizontal(cell, cells)
         if len(tmp_cells) >= 4:
             tmp_cells.add(cell)
             return tmp_cells
+
         tmp_cells = check_first_diagonal(cell, cells)
         if len(tmp_cells) >= 4:
             tmp_cells.add(cell)
             return tmp_cells
+
         tmp_cells = check_second_diagonal(cell, cells)
         if len(tmp_cells) >= 4:
             tmp_cells.add(cell)
             return tmp_cells
+
     return set()
 
 
@@ -167,12 +177,14 @@ def check_horizontal(cell: tuple, cells: set) -> set:
             tmp_cells.add(right_cell)
         else:
             break
+
     for i in range(1, 5):
         left_cell = (cell[0], cell[1] + i)
         if left_cell in cells:
             tmp_cells.add(left_cell)
         else:
             break
+
     return tmp_cells
 
 
@@ -185,12 +197,14 @@ def check_first_diagonal(cell: tuple, cells: set) -> set:
             tmp_cells.add(bot_right_cell)
         else:
             break
+
     for i in range(1, 5):
         top_left_cell = (cell[0] - i, cell[1] - i)
         if top_left_cell in cells:
             tmp_cells.add(top_left_cell)
         else:
             break
+
     return tmp_cells
 
 
@@ -203,12 +217,14 @@ def check_second_diagonal(cell: tuple, cells: set) -> set:
             tmp_cells.add(bot_left_cell)
         else:
             break
+
     for i in range(1, 5):
         top_right_cell = (cell[0] - i, cell[1] + i)
         if top_right_cell in cells:
             tmp_cells.add(top_right_cell)
         else:
             break
+
     return tmp_cells
 
 
@@ -238,6 +254,7 @@ def change_difficulty(event):
                                background='black',
                                font=('Verdana', 14, 'bold'))
     current_difficulty.grid(row=12, column=0, columnspan=10, sticky='nsew')
+
     new_game()
 
 
