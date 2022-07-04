@@ -6,9 +6,17 @@ from tkinter import Tk, Label, Button, ttk
 root = Tk()
 root.title = "Reverse tic-tac-toe"
 game_run = True
+
+# List of field cells
 field = []
+
+# Number of user moves
 cross_count = 0
+
+# Difficulty level
 difficulty = "Easy"
+
+# Sets of moves made by the user and the computer
 crosses = set()
 zeroes = set()
 
