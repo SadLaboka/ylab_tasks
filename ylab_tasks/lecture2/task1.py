@@ -8,6 +8,19 @@ def distance(p1: tuple, p2: tuple) -> float:
     return hypot(p2[0] - p1[0], p2[1] - p1[1])
 
 
+def make_routes(points: tuple, number_of_points: int) -> set:
+    """Creates paths and removes duplicates"""
+    tmp_routes = set()
+    routes = set()
+
+    for route in combinations(points[1:], number_of_points - 1):
+        tmp_routes.add(route)
+        if route[::-1] not in tmp_routes:
+            routes.add(route)
+
+    return routes
+
+
 def shortest_route(points: tuple) -> str:
     """Calculates the shortest route between all points"""
     number_of_points = len(points)
@@ -17,10 +30,11 @@ def shortest_route(points: tuple) -> str:
     elif number_of_points <= 1:
         return "Too few points. Min number of points 2"
 
+    routes = make_routes(points, number_of_points)
     end_point = points[0]
     shortest = []
 
-    for route in combinations(points[1:], number_of_points - 1):
+    for route in routes:
         route_length = 0
         last_point = end_point
         result = f"{last_point}"
