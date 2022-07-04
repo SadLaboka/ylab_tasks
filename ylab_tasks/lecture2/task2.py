@@ -217,7 +217,7 @@ def check_horizontal(cell: tuple, cells: set, count: int) -> set:
 def check_first_diagonal(cell: tuple, cells: set, count: int) -> set:
     """Checks diagonal top-left to bot-right"""
     tmp_cells = set()
-    for i in range(1, 5):
+    for i in range(1, count):
         bot_right_cell = (cell[0] + i, cell[1] + i)
         if bot_right_cell in cells:
             tmp_cells.add(bot_right_cell)
