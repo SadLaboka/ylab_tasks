@@ -11,13 +11,19 @@ class Movie:
     dates: List[Tuple[datetime, datetime]]
 
     def schedule(self) -> Generator[datetime, None, None]:
-        return []
+        one_day = 86400
+        for period in self.dates:
+            day = period[0].timestamp()
+            stop = period[1].timestamp()
+            while day <= stop:
+                yield datetime.fromtimestamp(day).isoformat(sep=" ")
+                day += one_day
 
 
 if __name__ == '__main__':
     m = Movie('sw', [
-      (datetime(2020, 1, 1), datetime(2020, 1, 7)),
-      (datetime(2020, 1, 15), datetime(2020, 2, 7))
+        (datetime(2020, 1, 1), datetime(2020, 1, 7)),
+        (datetime(2020, 1, 15), datetime(2020, 2, 7))
     ])
 
     for d in m.schedule():
