@@ -9,3 +9,5 @@
 <a href="https://github.com/SadLaboka/ylab_tasks/blob/main/ylab_tasks/lecture1.py">Задачи лекции №1</a>
 
 <a href="https://github.com/SadLaboka/ylab_tasks/blob/main/ylab_tasks/lecture2">Задачи лекции №2</a>
+
+<a href="https://github.com/SadLaboka/ylab_tasks/blob/main/ylab_tasks/lecture3">Задачи лекции №3</a>
