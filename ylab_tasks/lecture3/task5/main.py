@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+"""Solution of task5 from the lecture3."""
 from heroes import ChuckNorris, Superman, SuperHero
 from news import NewsCreator
 from places import Place, Kostroma, Tokyo

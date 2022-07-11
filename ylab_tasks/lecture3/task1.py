@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Solution of task1 from the lecture3"""
+from collections import Iterable, abc
 
 
 class CyclicIterator:
 
-    def __init__(self, value):
+    def __init__(self, value: Iterable):
         if self.is_order(value):
             self.value = value
         else:
@@ -24,9 +25,9 @@ class CyclicIterator:
 
     @staticmethod
     def is_order(value):
-        if isinstance(value, (set, dict, frozenset)):
-            return False
-        return True
+        if isinstance(value, abc.Sequence):
+            return True
+        return False
 
 
 if __name__ == '__main__':
